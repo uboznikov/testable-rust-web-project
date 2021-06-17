@@ -58,7 +58,7 @@ mod tests {
     #[actix_web::main]
     #[test]
     async fn test_save_and_check() {
-        let redis_client = redis::Client::open("redis://localhost:6378").unwrap();
+        let redis_client = redis::Client::open("redis://localhost:6379").unwrap();
         let sut = RedisTokenRepoImpl { redis_client: Arc::new(redis_client) };
 
         let token = sut.generate_token().await;
